@@ -1,4 +1,6 @@
-#  Task 3: Deception-Based Security Mechanism (Honeypot)
+#  Deception-Based Security Mechanism (Honeypot)
+
+> Part of the [Deception & Log Integrity toolkit](../README.md).
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square&logo=python)
 ![Flask](https://img.shields.io/badge/Flask-3.1.3-black?style=flat-square&logo=flask)
@@ -42,7 +44,7 @@ Dashboard shows all events in real time
 ##  File Structure
 
 ```
-task3-honeypot/
+honeypot/
 │
 ├── templates/
 │ └── login.html          # Fake admin portal UI
@@ -65,7 +67,7 @@ pip install flask
 
 **Start the honeypot:**
 ```bash
-cd task3-honeypot
+cd honeypot
 python app.py
 ```
 

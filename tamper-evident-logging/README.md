@@ -1,4 +1,6 @@
-# Task 1 — Tamper-Evident Logging System
+# Tamper-Evident Logging System
+
+> Part of the [Deception & Log Integrity toolkit](../README.md).
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square&logo=python)
 ![Hashing](https://img.shields.io/badge/Technique-SHA--256-orange?style=flat-square)
@@ -103,7 +105,7 @@ To make the system more secure and closer to real-world implementations:
 ## Project Structure
 
 ```text
-task1-tamper-evident-logging/
+tamper-evident-logging/
 │
 ├── README.md        # Documentation
 └── logger.py        # Core implementation
@@ -114,7 +116,7 @@ task1-tamper-evident-logging/
 ##  How to Run
 
 ```bash
-cd task1-tamper-evident-logging
+cd tamper-evident-logging
 python logger.py
 ```
 ---

@@ -1,6 +1,6 @@
 """
-Task 1: Tamper-Evident Logging System
-======================================
+Tamper-Evident Logging System
+=============================
 Each log entry contains a SHA-256 hash of the previous entry,
 forming a cryptographic chain. Any modification, deletion, or
 reordering of entries breaks the chain and is detected instantly.

@@ -1,12 +1,13 @@
 """
-Task 3: Deception-Based Security Mechanism - Honeypot System
-============================================================
+Deception-Based Security Mechanism - Honeypot System
+====================================================
 This system creates a fake admin login portal to detect and log
 any unauthorized access attempts. Every interaction is treated
 as suspicious since this portal is not meant for real users.
 """
 
 from flask import Flask, render_template, request, flash, redirect, url_for
+import html as html_lib
 import json
 import os
 from datetime import datetime
@@ -159,13 +160,17 @@ def dashboard():
       <tr><th>Timestamp</th><th>Event</th><th>IP</th><th>Details</th></tr>
     """
 
+    # Captured fields are attacker-controlled -- escape everything before
+    # rendering, otherwise a <script> typed as a username runs in our browser.
+    esc = lambda v: html_lib.escape(str(v), quote=True)
+
     for a in reversed(alerts):
-        event   = a.get("event_type", "")
-        ts      = a.get("timestamp", "")
-        ip_addr = a.get("IP", "-")
+        event   = esc(a.get("event_type", ""))
+        ts      = esc(a.get("timestamp", ""))
+        ip_addr = esc(a.get("IP", "-"))
         details = {k: v for k, v in a.items()
                    if k not in ("event_type", "timestamp", "IP")}
-        detail_str = " | ".join(f"{k}: {v}" for k, v in details.items())
+        detail_str = " | ".join(f"{esc(k)}: {esc(v)}" for k, v in details.items())
         html += f"""
         <tr>
           <td>{ts}</td>
